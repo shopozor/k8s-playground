@@ -1,6 +1,7 @@
 master:
   image: "jenkins/jenkins"
   tag: "lts"
+  serviceType: ClusterIP
   installPlugins:
     - credentials-binding
     - cucumber-reports

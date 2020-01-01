@@ -10,6 +10,25 @@ Jenkins on k8s needs persistent storage. In order to configure persistent storag
 
 Jenkins can be installed manually as advertised [here](https://devopscube.com/setup-jenkins-on-kubernetes-cluster/). However, we will rather use its [helm package](https://github.com/helm/charts/tree/master/stable/jenkins) as it seems to be easier. Configuration can be fine-tuned by means of a values file, as explained in the [configuration-as-code-plugin repo](https://github.com/helm/charts/tree/master/stable/jenkins).
 
+Upon installation, 
+
+1. Get your 'admin' user password by running:
+  ```
+  printf $(kubectl get secret --namespace default jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+  ```
+2. Get the Jenkins URL to visit by running these commands in the same shell:
+  ```
+  export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=jenkins" -o jsonpath="{.items[0].metadata.name}")
+  echo http://127.0.0.1:8080
+  kubectl --namespace default port-forward $POD_NAME 8080:8080
+  ```
+3. Login with the password from step 1 and the username: `admin`
+
+In order to give access to jenkins from the outside, you will need to install the jenkins ingress yaml file with
+```
+kubectl apply -f https://raw.githubusercontent.com/shopozor/k8s-playground/master/jenkins/jenkins-ingress.yaml
+```
+
 ## Kubernetes plugin
 
 * [kubernetes plugin](https://github.com/jenkinsci/kubernetes-plugin)
