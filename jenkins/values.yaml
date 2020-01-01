@@ -1,0 +1,16 @@
+master:
+  image: "jenkins/jenkins"
+  tag: "lts"
+  installPlugins:
+    - credentials-binding
+    - cucumber-reports
+    - embeddable-build-status
+    - ghprb
+    - git
+    - junit
+    - kubernetes
+    - workflow-aggregator
+    - workflow-job
+persistence: 
+  enabled: true
+  storageClass: jelastic-dynamic-volume
