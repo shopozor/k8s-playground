@@ -1,6 +1,6 @@
 master:
-  image: "jenkins/jenkins"
-  tag: "lts"
+  image: jenkins/jenkins
+  tag: lts
   serviceType: ClusterIP
   installPlugins:
     - credentials-binding
@@ -12,16 +12,16 @@ master:
     - kubernetes
     - workflow-aggregator
     - workflow-job
-  jenkinsUriPrefix: '/jenkins'
 persistence: 
   enabled: true
   storageClass: jelastic-dynamic-volume
 ingress:
   enabled: true
-  apiVersion: "networking.k8s.io/v1beta1"
-  labels: {}
+  apiVersion: networking.k8s.io/v1beta1
+  kubernetes.io/ingress.class: nginx
+  nginx.ingress.kubernetes.io/ssl-redirect: 'false'
   # annotations: { kubernetes.io/ingress.class: nginx, nginx.ingress.kubernetes.io/ssl-redirect: 'false' }
-  path: "/jenkins"
+  path: /ci
   # configures the hostname e.g. jenkins.example.com
   hostName:
   tls:
