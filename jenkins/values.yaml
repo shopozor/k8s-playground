@@ -12,7 +12,7 @@ master:
     - kubernetes
     - workflow-aggregator
     - workflow-job
-  jenkinsUriPrefix: /ci
+  # jenkinsUriPrefix: /ci
   ingress:
     enabled: true
     apiVersion: extensions/v1beta1
