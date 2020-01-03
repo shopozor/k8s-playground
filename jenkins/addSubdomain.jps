@@ -1,0 +1,14 @@
+jpsVersion: 1.3
+jpsType: update
+application:
+  id: add-subdomain
+  name: add-subdomain
+  version: 0.0
+
+  onInstall:
+    # see documentation: https://docs.jelastic.com/api/#!/api/environment.Binder-method-AddDomains
+    - api:
+      - method: jelastic.environment.binder.AddDomains
+        params:
+          domains: jenkins
+          subdomain: true
