@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: admin-ui
+  labels:
+    app: admin-ui
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: admin-ui
+    spec:
+      containers:
+      - image: abiosoft/caddy:latest
+        name: admin-ui
+        ports:
+          # TODO: we want ports 80 and 443 instead
+          - containerPort: 2015
+        resources:
+          limits:
+            cpu: 150m
+            memory: 250Mi
