@@ -14,9 +14,6 @@ spec:
       containers:
       - image: abiosoft/caddy:latest
         name: admin-ui
-        ports:
-          # TODO: we want ports 80 and 443 instead
-          - containerPort: 2015
         volumeMounts:
           - mountPath: /etc/Caddyfile # mount caddy-conf volume to /etc
             subPath: Caddyfile
