@@ -17,7 +17,19 @@ spec:
         ports:
           # TODO: we want ports 80 and 443 instead
           - containerPort: 2015
+        volumeMounts:
+          - mountPath: /etc/Caddyfile # mount caddy-conf volume to /etc
+            subPath: Caddyfile
+            readOnly: true 
+            name: caddy-conf
         resources:
           limits:
             cpu: 150m
             memory: 250Mi
+      volumes:
+        - name: caddy-conf
+          configMap:
+            name: caddy-conf # place ConfigMap `caddy-conf` on /etc
+            items:
+              - key: Caddyfile
+                path: Caddyfile
