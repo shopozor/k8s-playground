@@ -19,6 +19,8 @@ spec:
             subPath: Caddyfile
             readOnly: true 
             name: caddy-conf
+          - mountPath: /srv
+            name: pvc-45ed40b8-5561-439a-b86b-32196c89d12c
         resources:
           limits:
             cpu: 150m
@@ -30,3 +32,7 @@ spec:
             items:
               - key: Caddyfile
                 path: Caddyfile
+          # this name can be retrieved by getting the persistent volume claim's volumeName in its spec after installation (the name is generated automatically)
+        - name: pvc-45ed40b8-5561-439a-b86b-32196c89d12c
+          persistentVolumeClaim: 
+            claimName: admin-ui
