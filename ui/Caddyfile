@@ -1,5 +1,6 @@
-#env-8958284.hidora.com
 0.0.0.0:8080
+
+tls off
 
 browse
 
