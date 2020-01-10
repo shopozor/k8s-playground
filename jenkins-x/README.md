@@ -90,4 +90,6 @@ jx install --on-premise
 ```
 But that fails sometime later because it doesn't take the values in `jx-requirements.yml` into account. Also, the `jx install` command is deprecated. So, I followed [this advice](https://github.com/jenkins-x/jx/issues/5496) and updated the value of `ingress.domain` in `jx.requirements.yml` with the domain name of the jelastic environment hosting our cluster.
 
-5. Finally, the jenkins X instance needs to have its tls configured.
+5. If hooks can't be configured automatically upon `jx import`, double-check [this issue](https://github.com/jenkins-x/jx/issues/370)
+
+6. Finally, the jenkins X instance needs to have its tls configured.
