@@ -92,4 +92,6 @@ But that fails sometime later because it doesn't take the values in `jx-requirem
 
 5. If hooks can't be configured automatically upon `jx import`, double-check [this issue](https://github.com/jenkins-x/jx/issues/370)
 
-6. Finally, the jenkins X instance needs to have its tls configured.
+6. Handling monorepos can be done as explained [here](https://github.com/jenkins-x/jx/issues/822)
+
+7. Finally, the jenkins X instance needs to have its tls configured.
