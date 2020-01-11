@@ -62,6 +62,8 @@ you might get the following missing check:
 
 in which case `zadigus` needs to add an `/approve` comment to the PR's discussion, after the review was made. See [this documentation](https://github.com/kubernetes/test-infra/blob/master/prow/plugins/approve/approvers/README.md#lgtm-label) for more information on the topic.
 
+It seems like `jx-ui` is only compatible with the Jenkins X Cloudbees release, therefore not on Jelastic.
+
 Here I experienced many problems:
 
 1. I experienced [this issue](https://github.com/jenkins-x/jx/issues/5418) which I fixed by replacing
@@ -95,3 +97,11 @@ But that fails sometime later because it doesn't take the values in `jx-requirem
 6. Handling monorepos can be done as explained [here](https://github.com/jenkins-x/jx/issues/822) or [here](https://jenkins-x.io/docs/using-jx/faq/#how-can-i-use-a-monorepo)
 
 7. Finally, the jenkins X instance needs to have its tls configured.
+
+## Quickstart project
+
+1. Run in the console
+```
+jx create quickstart --git-public=true
+```
+to generate a pre-defined quickstart project.
