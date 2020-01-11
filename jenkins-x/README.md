@@ -105,3 +105,11 @@ But that fails sometime later because it doesn't take the values in `jx-requirem
 jx create quickstart --git-public=true
 ```
 to generate a pre-defined quickstart project.
+
+2. Then you can check the project's status with the following commands:
+```
+Watch pipeline activity via:    jx get activity -f jenkinsx-quickstart -w
+Browse the pipeline log via:    jx get build logs shopozor/jenkinsx-quickstart/master
+You can list the pipelines via: jx get pipelines
+When the pipeline is complete:  jx get applications
+```
