@@ -42,9 +42,9 @@ yum -y install git
 as you will not get the latest `git` version which is necessary. 
 
 3. Create a github user dedicated to pipelines with a token with the following scope: 
-```
-repo,read:user,read:org,user:email,write:repo_hook,delete_repo
-```
+
+https://github.com/settings/tokens/new?scopes=repo,read:user,read:org,user:email,write:repo_hook,delete_repo
+
 The user needs to be part of the `shopozor` organisation. In case there would be no pipeline user found in a later installation step, try to follow the instructions provided [here](https://github.com/jenkins-x/jx/issues/1679).
 
 4. Bootstrap Jenkins X
